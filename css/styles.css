@@ -38,6 +38,18 @@
 .input-error{
 border: 1px solid rgba(220,10,10,0.5);
 }
-.btn{
+.btn-lg{
     margin: 20px auto 10px auto;
+}
+.reqSample{
+    margin: auto 0 !important;
+}
+#hospitalContainer{
+	display: none;
+}
+.alertDiv{
+    top: 20%;
+	left: 15%;
+    position:fixed;
+    display: none;
 }

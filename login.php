@@ -19,7 +19,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
         </button>
-      <a class="navbar-brand" href="#" style="display: inline">
+      <a class="navbar-brand" href="index.php" style="display: inline">
         <img alt="Brand" src="images/logo.png" style="height:30px; width: 40px">
         <h4>bloodShala</h4>
       </a>
@@ -95,7 +95,7 @@ $("#submit").on("click", function(e){
 		userType = "hospital";
 	}
 	else
-		userType = "reciever";
+		userType = "receiver";
 
 	var email = $("#email").val();
 	var password = $("#password").val();
@@ -126,7 +126,7 @@ $("#submit").on("click", function(e){
 				$("#submit").addClass("disabled"); 
 				$('#error').text(res.message);
 				//redirect to main dashboard after 2 seconds.
-				window.location.href = "/bloodbank/index.php";
+				window.location.href = "index.php";
 			} else {
 				$('#error').text(res.message);
 			}       

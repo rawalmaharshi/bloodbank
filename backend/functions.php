@@ -7,7 +7,8 @@ date_default_timezone_set($timezone);
 $datetime = date('d-m-Y H:i:s');
 $date = date('Y-m-d');
 
-function &getConnection() {
+function &getConnection() 
+{
 	$db = new PDO('mysql:host=localhost;dbname=bloodbank', 'root'); 
 	return $db;
 }

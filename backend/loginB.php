@@ -22,6 +22,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['userType
 		}
 		else{
 			$object = $fetch->fetchObject();
+			$userId = $object->id;
 			$userName = $object->hosp_name;
 			$userEmail = $object->hosp_email;
 			$userAddress = $object->hosp_address;
@@ -33,6 +34,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['userType
 
 			if (password_verify($password, $userPass)) {
 				//password match..Log in
+				$_SESSION['hosp_id'] = $userId;
 				$_SESSION['userName'] = $userName; 
 				$_SESSION['userEmail'] = $userEmail;
 				$_SESSION['userType'] = $userType;
@@ -69,6 +71,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['userType
 		else{
 			$object = $fetch->fetchObject();
 		
+			$userId = $object->id;
 			$userName = $object->full_name;
 			$userEmail = $object->rec_email;
 			$userGender = $object->gender;
@@ -84,6 +87,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['userType
 
 			if (password_verify($password, $userPass)) {
 				//password match..Log in
+				$_SESSION['rec_id'] = $userId;
 				$_SESSION['userName'] = $userName; 
 				$_SESSION['userEmail'] = $userEmail;
 				$_SESSION['userType'] = $userType;

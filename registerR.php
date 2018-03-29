@@ -19,7 +19,7 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
         </button>
-      <a class="navbar-brand" href="#" style="display: inline">
+      <a class="navbar-brand" href="index.php" style="display: inline">
         <img alt="Brand" src="images/logo.png" style="height:30px; width: 40px">
         <h4>bloodShala</h4>
       </a>
