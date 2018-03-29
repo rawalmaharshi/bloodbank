@@ -5,7 +5,7 @@ session_start();
 //     header("Location: login.php");
 //     die();
 // }
-print_r($_SESSION);
+//print_r($_SESSION);
 
 ?>
 <!DOCTYPE html>
