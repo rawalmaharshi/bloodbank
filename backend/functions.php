@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-
+// $db = new PDO('mysql:host=us-cdbr-gcp-east-01.cleardb.net;dbname=gcp_9ccc31bf26d25a52f464', 'bb4bd4eceed032', '7728c3e8'); 
 
 $timezone = "Asia/Calcutta";
 date_default_timezone_set($timezone);
@@ -12,7 +12,10 @@ function &getConnection()
 	//localhost
 	// $db = new PDO('mysql:host=localhost;dbname=bloodbank', 'root');
 	//Heroku
-	$db = new PDO('mysql:host=us-cdbr-gcp-east-01.cleardb.net;dbname=gcp_9ccc31bf26d25a52f464', 'bb4bd4eceed032', '7728c3e8'); 
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$host = $url["host"];
+	$db_name = substr($url["path"], 1);
+	$db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8'); 
 	return $db;
 }
 
