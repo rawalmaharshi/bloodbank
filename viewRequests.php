@@ -39,7 +39,7 @@ else{
         </button>
       <a class="navbar-brand" href="index.php" style="display: inline">
         <img alt="Brand" src="images/logo.png" style="height:30px; width: 40px">
-        <h4>Blood Bank</h4>
+        <h4>BloodBank</h4>
       </a>
     </div>
 
