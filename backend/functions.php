@@ -17,9 +17,10 @@ function &getConnection()
 	$db_name = substr($url["path"], 1);
 	echo $url, $host, $db_name;
 	$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
-	if($db){
-		echo "connected";
-	}
+	if ($db->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
 	return $db;
 }
 
