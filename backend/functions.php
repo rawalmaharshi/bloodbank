@@ -16,16 +16,22 @@ function &getConnection()
 	$url = parse_url(getenv("DATABASE_URL"));
 	$host = $url["host"];
 	$db_name = substr($url["path"], 1);
-	$db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8');
 	// try {
-	    
+	//     $db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8');
 	//     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	//     echo "Connected successfully"; 
  //    } catch(PDOException $e)
  //    {
  //    	echo "Connection failed: " . $e->getMessage();
  //    }
-    return $db;
+ //    return $db;
+	$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
+
+// Check connection
+if (!$db) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
 }
 
 function qExecute($sql)
