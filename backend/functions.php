@@ -18,7 +18,7 @@ function &getConnection()
 	echo $url, $host, $db_name;
 	$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
 	if ($db->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $db->connect_error);
 } 
 echo "Connected successfully";
 	return $db;
