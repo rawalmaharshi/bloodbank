@@ -2,7 +2,8 @@
 error_reporting(E_ALL);
 include_once('functions.php');
 
-$db = getConnection();
+// $db = getConnection();
+$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
 $fetch = qExecuteAssocArray("SELECT auto_id, blood_group, count, hosp_id, hosp_name, hosp_address, hosp_state, hosp_email FROM blood_samples INNER JOIN hospitals ON blood_samples.hosp_id = hospitals.id");
 if(!$fetch){
 	echo json_encode(array(
