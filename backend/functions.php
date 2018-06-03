@@ -16,8 +16,10 @@ function &getConnection()
 	$url = parse_url(getenv("DATABASE_URL"));
 	$host = $url["host"];
 	$db_name = substr($url["path"], 1);
+	$username = $url["user"];
+	$password = $url["pass"];
 	try {
-	    $db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8');
+	    $db = new PDO("mysql:host=$host;dbname=$db_name", $username, $password);
 	    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    echo "Connected successfully"; 
     } catch(PDOException $e)
@@ -26,7 +28,7 @@ function &getConnection()
     }
     return $db;
 }
-	
+
 function qExecute($sql)
 {
 	// echo $sql;
