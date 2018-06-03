@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 // $db = new PDO('mysql:host=us-cdbr-gcp-east-01.cleardb.net;dbname=gcp_9ccc31bf26d25a52f464', 'bb4bd4eceed032', '7728c3e8'); 
+// $db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
 
 $timezone = "Asia/Calcutta";
 date_default_timezone_set($timezone);
@@ -15,13 +16,15 @@ function &getConnection()
 	$url = parse_url(getenv("DATABASE_URL"));
 	$host = $url["host"];
 	$db_name = substr($url["path"], 1);
-	echo $url, $host, $db_name;
-	$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
-	if ($db->connect_error) {
-    die("Connection failed: " . $db->connect_error);
-} 
-echo "Connected successfully";
-	return $db;
+	try {
+	    $db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8');
+	    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    echo "Connected successfully"; 
+    } catch(PDOException $e)
+    {
+    	echo "Connection failed: " . $e->getMessage();
+    }
+    return $db;
 }
 
 function qExecute($sql)
