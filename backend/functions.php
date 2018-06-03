@@ -12,10 +12,11 @@ function &getConnection()
 	//localhost
 	// $db = new PDO('mysql:host=localhost;dbname=bloodbank', 'root');
 	//Heroku
-	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$url = parse_url(getenv("DATABASE_URL"));
 	$host = $url["host"];
 	$db_name = substr($url["path"], 1);
-	$db = new PDO('mysql:host=$host;dbname=$db_name', 'bb4bd4eceed032', '7728c3e8'); 
+	echo $url, $host, $db_name;
+	$db = new mysqli($host,'bb4bd4eceed032', '7728c3e8', $db_name);
 	return $db;
 }
 
