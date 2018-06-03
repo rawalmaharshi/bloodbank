@@ -9,7 +9,10 @@ $date = date('Y-m-d');
 
 function &getConnection() 
 {
-	$db = new PDO('mysql:host=localhost;dbname=bloodbank', 'root'); 
+	//localhost
+	// $db = new PDO('mysql:host=localhost;dbname=bloodbank', 'root');
+	//Heroku
+	$db = new PDO('mysql:host=us-cdbr-gcp-east-01.cleardb.net;dbname=gcp_9ccc31bf26d25a52f464', 'bb4bd4eceed032', '7728c3e8'); 
 	return $db;
 }
 
